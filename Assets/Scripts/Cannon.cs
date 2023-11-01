@@ -2,14 +2,14 @@
 
 public class Cannon : MonoBehaviour
 {
+    [Header("Shoot settings")]
     [SerializeField] private Transform _target;
-
-    [Space]
     [SerializeField] private Transform _firePoint;
-
     [SerializeField] private float _minBulletSpeed;
     [SerializeField] private float _maxBulletSpeed;
     [SerializeField] private float _shootDelay;
+    
+    [Space]
     [SerializeField] private Pool _pool;
 
     private float _timer;

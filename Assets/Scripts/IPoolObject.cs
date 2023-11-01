@@ -1,4 +1,4 @@
-﻿    public interface IPoolObject
-    {
-        public void ReturnToPool();
-    }
+﻿public interface IPoolObject
+{
+    public void ReturnToPool();
+}

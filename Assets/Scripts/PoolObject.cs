@@ -1,9 +1,9 @@
-﻿    using UnityEngine;
+﻿using UnityEngine;
 
-    public class PoolObject : MonoBehaviour, IPoolObject
+public class PoolObject : MonoBehaviour, IPoolObject
+{
+    public void ReturnToPool()
     {
-        public void ReturnToPool()
-        {
-            gameObject.SetActive(false);
-        }
+        gameObject.SetActive(false);
     }
+}
