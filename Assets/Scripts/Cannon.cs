@@ -35,6 +35,6 @@ public class Cannon : MonoBehaviour
         var force = direction * bulletSpeed;
 
         var projectile = _pool.GetFreeElement(FirePosition) as Projectile;
-        projectile.AddForce(force);
+        projectile.Setup(direction);
     }
 }
