@@ -8,8 +8,8 @@ public class Projectile : PoolObject, IDecelerate
     private Vector2 _gravity;
     private float _currentSpeed;
 
-    private Rigidbody2D Rigidbody => _rigidbody ??= GetComponent<Rigidbody2D>();
     public float SlowdownFactor { get; set; }
+    private Rigidbody2D Rigidbody => _rigidbody ??= GetComponent<Rigidbody2D>();
 
     private void Awake()
     {

@@ -32,7 +32,6 @@ public class Cannon : MonoBehaviour
     {
         var bulletSpeed = Random.Range(_minBulletSpeed, _maxBulletSpeed);
         var direction = (TargetPosition - FirePosition).normalized;
-        var force = direction * bulletSpeed;
 
         var projectile = _pool.GetFreeElement(FirePosition) as Projectile;
         projectile.Setup(direction, bulletSpeed);

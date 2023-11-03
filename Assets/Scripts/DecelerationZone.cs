@@ -10,7 +10,7 @@ public class DecelerationZone : MonoBehaviour
         if (decelerate == null)
             return;
 
-        decelerate.SlowdownFactor = 0.1f;
+        decelerate.SlowdownFactor *= SlowdownFactor;
     }
     
     private void OnTriggerExit2D(Collider2D other)
@@ -19,6 +19,6 @@ public class DecelerationZone : MonoBehaviour
         if (decelerate == null)
             return;
 
-        decelerate.SlowdownFactor = 1f;
+        decelerate.SlowdownFactor /= SlowdownFactor;
     }
 }
