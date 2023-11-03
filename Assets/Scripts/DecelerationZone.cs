@@ -6,19 +6,19 @@ public class DecelerationZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        var slowdowner = other.GetComponent<ISlowdowner>();
-        if (slowdowner == null)
+        var decelerate = other.GetComponent<IDecelerate>();
+        if (decelerate == null)
             return;
 
-        slowdowner.SlowdownFactor = 0.1f;
+        decelerate.SlowdownFactor = 0.1f;
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        var slowdowner = other.GetComponent<ISlowdowner>();
-        if (slowdowner == null)
+        var decelerate = other.GetComponent<IDecelerate>();
+        if (decelerate == null)
             return;
 
-        slowdowner.SlowdownFactor = 1f;
+        decelerate.SlowdownFactor = 1f;
     }
 }

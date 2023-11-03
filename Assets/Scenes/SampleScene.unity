@@ -313,9 +313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 139667782}
   _firePoint: {fileID: 71409146}
-  _minBulletSpeed: 15
-  _maxBulletSpeed: 20
-  _shootDelay: 2.5
+  _minBulletSpeed: 5
+  _maxBulletSpeed: 10
+  _shootDelay: 1
   _pool: {fileID: 13655160}
 --- !u!4 &231259373
 Transform:
@@ -572,9 +572,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 139667782}
   _firePoint: {fileID: 333809055}
-  _minBulletSpeed: 15
-  _maxBulletSpeed: 20
-  _shootDelay: 2
+  _minBulletSpeed: 5
+  _maxBulletSpeed: 10
+  _shootDelay: 1
   _pool: {fileID: 13655160}
 --- !u!4 &754323152
 Transform:

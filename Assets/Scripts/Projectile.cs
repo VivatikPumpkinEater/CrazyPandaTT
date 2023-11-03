@@ -1,29 +1,39 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Projectile : PoolObject, ISlowdowner
+public class Projectile : PoolObject, IDecelerate
 {
     private Rigidbody2D _rigidbody;
 
     private Vector2 _currentDirection;
-    
+    private Vector2 _gravity;
+    private float _currentSpeed;
+
     private Rigidbody2D Rigidbody => _rigidbody ??= GetComponent<Rigidbody2D>();
     public float SlowdownFactor { get; set; }
 
-    public void Setup(Vector2 direction)
+    private void Awake()
+    {
+        _gravity = Vector2.down * Rigidbody.mass; 
+    }
+
+    public void Setup(Vector2 direction, float speed)
     {
         SlowdownFactor = 1f;
+        _currentSpeed = speed;
         _currentDirection = direction;
     }
     
     private void FixedUpdate()
     {
-        Rigidbody.MovePosition(Rigidbody.position + _currentDirection * SlowdownFactor);
+        var fixedDelta = Time.fixedDeltaTime * SlowdownFactor;
+        _currentDirection = Vector2.Lerp(_currentDirection, _gravity, 0.2f * fixedDelta);
+        var newPosition = Rigidbody.position + _currentDirection * (_currentSpeed * fixedDelta);
+        Rigidbody.MovePosition(newPosition);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        // var a = Mathf.Abs(Rigidbody.velocity - other.relativeVelocity)
-        _currentDirection *= -1f;
+        var dir = Rigidbody.position - (Vector2)other.gameObject.transform.position;
+        _currentDirection = dir.normalized;
     }
 }
